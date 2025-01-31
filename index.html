@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service Bot</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        html {
+            background-color: whitesmoke;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Open Sans", sans-serif;
+        }
+        .main {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 10px;
+            margin-top: 65px;
+            width: 30%;
+            margin-left: auto;
+            margin-right: auto; /* Center the chat box */
+            height: 500px;
+            border: none;
+            border-radius: 10px;
+            border-style: solid;
+            border-color: rgba(0, 0, 0, 0.459);
+            background: linear-gradient(#000428, #004e92);
+            box-shadow: 3px 15px 30px 2px rgba(0, 0, 0, 0.596);
+            overflow-y: auto;
+        }
+        .chat-box {
+            flex-grow: 1;
+            padding: 10px;
+            color: white;
+            font-size: small;
+            display: flex;
+            flex-direction: column; /* Stack messages vertically */
+        }
+        .message {
+            border-radius: 10px;
+            padding: 8px;
+            margin: 5px 0;
+            max-width: 80%;
+            word-wrap: break-word; /* Ensure long words break */
+        }
+        .user {
+            background-color: rgba(0, 255, 0, 0.3);
+            text-align: right;
+            align-self: flex-end; /* Aligns user messages to the right */
+        }
+        .bot {
+            background-color: rgba(255, 255, 255, 0.2);
+            text-align: left;
+            align-self: flex-start; /* Aligns bot messages to the left */
+        }
+        h1 {
+            position: absolute;
+            left: calc(45% - 100px);
+            top: 20px;
+            color: black;
+            font-family: "Lato", sans-serif;
+            font-size: x-large;
+        }
+        form {
+            display: flex;
+            margin-top: 10px;
+        }
+        input {
+            flex-grow: 1;
+            padding: 10px;
+            border-radius: 5px;
+            width: 60%; /* Adjusted width to make it smaller */
+        }
+        button {
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CUSTOMER SERVICE BOT</h1>
+    <div class="main">
+        <div class="chat-box">
+            {% for sender, message in chat_history %}
+                <p class="message {% if sender == 'You' %}user{% else %}bot{% endif %}">{{ sender }}: {{ message }}</p>
+            {% endfor %}
+        </div>
+
+        <form method="POST">
+            <input type="text" name="message" placeholder="Ask the Chatbot..." required>
+            <button type="submit"><i class="fa-solid fa-rocket"></i></button>
+        </form>
+    </div>
+</body>
+</html>
