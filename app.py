@@ -18,14 +18,13 @@ EXCEL_FILE = "chat_history.xlsx"
 
 
 def save_chat_to_excel(user_msg, bot_responses):
-    # Check if the file exists, if not create a new one
+
     if not os.path.exists(EXCEL_FILE):
         wb = openpyxl.Workbook()
         ws = wb.active
-        ws.append(["Timestamp", "User Message", "Bot Response"])  # Add a Timestamp column
+        ws.append(["Timestamp", "User Message", "Bot Response"])  
         wb.save(EXCEL_FILE)
 
-    # Load the existing workbook
     wb = openpyxl.load_workbook(EXCEL_FILE)
     ws = wb.active
 
