@@ -15,7 +15,7 @@
          .main {
              display: block;
              margin-top: 65px;
-             width: 30%;
+             width: 25%;
              margin-left: 20px;
              height: 500px;
              border: none;
@@ -74,13 +74,21 @@
          }
          button i {
              font-size: 20px;
-             color: #004e92;
+             color: #000000;
+         }
+         h1 {
+             position: absolute;
+             margin-left: 60px;
+             margin-top: 20px;
+             color: black;
+             font-family: "Lato", serif;
+             font-size: x-large;
          }
         </style>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body>
-        <h1 >"CUSTOMER SERVICE BOT"</h1>
+        <h1>"CUSTOMER SERVICE BOT"</h1>
         <div class="main">
             <div class="chat-box">
                 {% for sender, message in chat_history %}
